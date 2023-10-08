@@ -5,12 +5,11 @@ public class Candidato extends Ciudadano{
     private int numero_votos;
 
     public Candidato(String nombre, String identificacion, Ciudades ciudad_origen, boolean derecha,
-            Partido partido_politico, String propuestas, int numero_votos) {
+            Partido partido_politico, String propuestas) {
         super(nombre, identificacion, ciudad_origen);
         this.derecha = derecha;
         this.partido_politico = partido_politico;
         this.propuestas = propuestas;
-        this.numero_votos = numero_votos;
     }
     public boolean isDerecha() {
         return derecha;
