@@ -117,7 +117,7 @@ public class FuncionesCandidato {
                 salir = false;
         }
     }
-    public static void mostrarC(ArrayList<Candidato> lista2){
+        public static void mostrarC(ArrayList<Candidato> lista2){
         lista2.forEach((i) ->{
             System.out.println("------------------------------------------------------------");
             System.out.println(i.getNombre());            
@@ -128,24 +128,6 @@ public class FuncionesCandidato {
             System.out.println(i.getPropuestas()); 
             System.out.println("\n");           
         });
-    }
-    public static void eliminarC(Scanner opc){
-        System.out.println("Digite el nombre del candidato: ");
-            String candidatoE = opc.nextLine();
-            int posicion = 0;
-            for(int i=0; i<FuncionesCandidato.lista.size(); i++){
-                if(candidatoE.equals(FuncionesCandidato.lista.get(i).getNombre())){
-                posicion = 1;
-                }
-            }
-            if(posicion>0){
-                FuncionesCandidato.lista.remove(posicion);
-                System.out.println("El candidato se ha eliminado correctamente. ");
-            }else{
-                System.out.println("El candidato no fue encontrado. ");
-            }
-            
-
     }
 }
 
