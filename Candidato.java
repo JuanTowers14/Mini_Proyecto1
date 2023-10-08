@@ -10,6 +10,7 @@ public class Candidato extends Ciudadano{
         this.derecha = derecha;
         this.partido_politico = partido_politico;
         this.propuestas = propuestas;
+        this.numero_votos = numero_votos;
     }
     public boolean isDerecha() {
         return derecha;
