@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuncionesCandidato {
+
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
 
     public static void crearCandidato(String[] args) throws Exception{
@@ -117,4 +118,26 @@ public class FuncionesCandidato {
                 salir = false;
         }
     }
+
+    public static void BuscarCandidato(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa el nombre del candidato a buscar: ");
+        String buscado = scanner.nextLine();
+
+        lista.forEach((i)->{
+            if(i.getNombre().contains(buscado)){
+                System.out.println("------------------------------------------------------------");
+                System.out.println(i.getNombre());            
+                System.out.println(i.getIdentificacion());            
+                System.out.println(i.getCiudad_origen());            
+                System.out.println(i.isDerecha());            
+                System.out.println(i.getPartido_politico());            
+                System.out.println(i.getPropuestas()); 
+                System.out.println("\n"); 
+            }
+        });
+    }
+
 }
+
