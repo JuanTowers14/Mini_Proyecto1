@@ -117,4 +117,17 @@ public class FuncionesCandidato {
                 salir = false;
         }
     }
+        public static void mostrarC(ArrayList<Candidato> lista2){
+        lista2.forEach((i) ->{
+            System.out.println("------------------------------------------------------------");
+            System.out.println(i.getNombre());            
+            System.out.println(i.getIdentificacion());            
+            System.out.println(i.getCiudad_origen());            
+            System.out.println(i.isDerecha());            
+            System.out.println(i.getPartido_politico());            
+            System.out.println(i.getPropuestas()); 
+            System.out.println("\n");           
+        });
+    }
 }
+
