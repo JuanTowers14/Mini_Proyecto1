@@ -117,7 +117,7 @@ public class FuncionesCandidato {
                 salir = false;
         }
     }
-    public static void mostrarCandidato(ArrayList<Candidato> lista2){
+        public static void mostrarCandidato(ArrayList<Candidato> lista2){
         lista2.forEach((i) ->{
             System.out.println("------------------------------------------------------------");
             System.out.println(i.getNombre());            
@@ -129,7 +129,7 @@ public class FuncionesCandidato {
             System.out.println("\n");           
         });
     }
-    
+   
     public static void BuscarCandidato(){
         Scanner scanner = new Scanner(System.in);
 
@@ -149,6 +149,5 @@ public class FuncionesCandidato {
             }
         });
     }
-    
 }
 
