@@ -130,7 +130,7 @@ public class FuncionesCandidato {
         });
     } 
 
-    public static void BuscarCandidato(){
+    public static void buscarCandidato(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingresa el nombre del candidato a buscar: ");
@@ -148,6 +148,19 @@ public class FuncionesCandidato {
                 System.out.println("\n"); 
             }
         });
+    }
+
+    public static void eliminarCandidato(){
+         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa la cédula del candidato a eliminar: ");
+        String buscado = scanner.nextLine();
+
+        for(int i = 0; i < FuncionesCandidato.lista.size(); i++){
+            if(FuncionesCandidato.lista.get(i).getIdentificacion().equals(buscado)){
+                FuncionesCandidato.lista.remove(i);
+            }
+        }
     }
 }
 
