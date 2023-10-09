@@ -161,6 +161,7 @@ public class FuncionesCandidato {
                 FuncionesCandidato.lista.remove(i);
             }
         }
+
     }
 }
 
