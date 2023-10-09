@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class FuncionesCandidato {
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
-
+    static int indice;
+    static int validar = 0;
     public static void crearCandidato(String[] args) throws Exception{
         
         boolean salir = true; 
@@ -117,16 +118,24 @@ public class FuncionesCandidato {
                 salir = false;
         }
     }
+
     public static void mostrarCandidato(ArrayList<Candidato> lista2){
         lista2.forEach((i) ->{
+            String posiToF = null;
+            if(i.isDerecha()==true){
+                    posiToF = "Derecha";
+                }
+            else if(i.isDerecha()==false){
+                    posiToF = "Izquierda";
+                }
             System.out.println("------------------------------------------------------------");
             System.out.println(i.getNombre());            
             System.out.println(i.getIdentificacion());            
             System.out.println(i.getCiudad_origen());            
-            System.out.println(i.isDerecha());            
+            System.out.println(posiToF);            
             System.out.println(i.getPartido_politico());            
             System.out.println(i.getPropuestas()); 
-            System.out.println("\n");           
+            System.out.println("\n");         
         });
     } 
 
@@ -138,16 +147,111 @@ public class FuncionesCandidato {
         
         lista.forEach((i)->{
             if(i.getNombre().contains(buscado)){
+                String posiToF = null;
+                if(i.isDerecha()==true){
+                    posiToF = "Derecha";
+                }
+                else if(i.isDerecha()==false){
+                    posiToF = "Izquierda";
+                }
                 System.out.println("------------------------------------------------------------");
                 System.out.println(i.getNombre());            
                 System.out.println(i.getIdentificacion());            
                 System.out.println(i.getCiudad_origen());            
-                System.out.println(i.isDerecha());            
+                System.out.println(posiToF);            
                 System.out.println(i.getPartido_politico());            
                 System.out.println(i.getPropuestas()); 
                 System.out.println("\n"); 
             }
         });
+    }
+
+    public static void actualizarCandidato(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa la cédula del candidato a actualizar: ");
+        String buscado = scanner.nextLine();
+        lista.forEach((i)->{
+            if(i.getIdentificacion().contains(buscado)){
+                String posiToF = null;
+                if(lista.get(indice).isDerecha()){
+                        posiToF = "Derecha";
+                    }
+                else{
+                        posiToF = "Izquierda";
+                    } 
+                System.out.println("------------------------------------------------------------");
+                System.out.println("Nombre:     1.    "+i.getNombre());            
+                System.out.println("Cedula:           "+i.getIdentificacion()+" (No permitido)");            
+                System.out.println("Ciudad de origen: "+i.getCiudad_origen()+" (No permitido)");            
+                System.out.println("Posición:   2.    "+posiToF);            
+                System.out.println("Prtido:     3.    "+i.getPartido_politico());            
+                System.out.println("Propuestas: 4.    "+i.getPropuestas()); 
+                System.out.println("\n");
+                indice = lista.indexOf(i);
+                validar = 1;
+            }
+        });
+        int opc1 = 2;
+        System.out.println("Ingrese el número del atributo a cambiar: ");
+        while(validar != 0 || opc1<1 || opc1>4){
+        opc1 = scanner.nextInt();
+        scanner.nextLine();
+
+        switch(opc1){
+            case 1: System.out.println("Ingrese el nuevo nombre: ");          
+                    String nombreA = scanner.nextLine();
+                    lista.get(indice).setNombre(nombreA);
+                    break;
+            case 2: if(lista.get(indice).isDerecha()==true){
+                        lista.get(indice).setDerecha(false);
+                    }
+                    else{
+                        lista.get(indice).setDerecha(true);
+                    }
+                    System.out.println("Posición política cambiada");
+                    break;
+            case 3: if(lista.get(indice).isDerecha()==true){
+                        int variableswitch;
+                        do {
+                            System.out.println("Estos son los partidos de derecha: ");
+                            System.out.println("1. "+Partido.Conservador);
+                            System.out.println("2. "+Partido.Centro_democratico);
+                            System.out.println("3. "+Partido.Partido_cambio_radical);
+
+                            variableswitch = scanner.nextInt(); 
+                            switch(variableswitch){
+                            case 1: lista.get(indice).setPartido_politico(Partido.Conservador);break;
+                            case 2: lista.get(indice).setPartido_politico(Partido.Centro_democratico);break;
+                            case 3: lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);break;
+                            default: System.out.println("Digíte un dato válido");break;
+                            }
+                        }while(variableswitch<1 ||  variableswitch>3);
+                        }else{
+                            int variableswitch2;
+                            do {
+                                System.out.println("Estos son los partidos de izquierda: ");
+                                System.out.println("1. "+Partido.Liberal);
+                                System.out.println("2. "+Partido.Alianza_verde);
+                                variableswitch2 = scanner.nextInt();
+                                
+                                switch(variableswitch2){
+                                case 1: lista.get(indice).setPartido_politico(Partido.Liberal);break;
+                                case 2: lista.get(indice).setPartido_politico(Partido.Alianza_verde);break;
+                                default: System.out.println("Digíte un dato válido");break;
+                            }
+                            }while(variableswitch2 < 1 || variableswitch2 > 2);
+                        }
+                    break;
+            case 4: System.out.println("Ingrese las nuevas propuestas: ");
+                    String propuestA = scanner.nextLine();
+                    lista.get(indice).setPropuestas(propuestA);
+                    break;
+            default: System.out.println("Dígite algo válido: ");
+                     break;
+                    }
+        }
+        validar = 0;
+                         
     }
 
     public static void eliminarCandidato(){
