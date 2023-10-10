@@ -42,7 +42,6 @@ public class App {
         
         Scanner sn = new Scanner(System.in);
         int opcion2;
-        ArrayList<Candidato> lista2 = new ArrayList<Candidato>();
         do{
         System.out.println("\nMenu candidatos\n");
         System.out.println("1- Crear un candidato.");
@@ -61,10 +60,12 @@ public class App {
                 FuncionesCandidato.crearCandidato(args);
                 break;
             case 2:
-                FuncionesCandidato.mostrarCandidato(lista2);
+                FuncionesCandidato.mostrarCandidato(FuncionesCandidato.lista);
+                FuncionesCandidato.pressEnterToContinue();
+                System.out.println("\033c");
                 break;
             case 3:
-                FuncionesCandidato.mostrarCandidato(lista2);
+                FuncionesCandidato.mostrarCandidato(FuncionesCandidato.lista);
                 break;
             case 4:
                 FuncionesCandidato.actualizarCandidato();
@@ -82,5 +83,6 @@ public class App {
         }while(opcion2!=6);
         
     }
+    
 
 }

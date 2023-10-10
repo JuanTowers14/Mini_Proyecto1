@@ -5,6 +5,17 @@ public class FuncionesCandidato {
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
     static int indice;
     static int validar = 0;
+
+    static void pressEnterToContinue(){ 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press Enter key to continue...");
+        try{
+            System.in.read();
+            scanner.nextLine();
+            }
+        catch(Exception e)
+        {}
+    }
     public static void crearCandidato(String[] args) throws Exception{
         
         boolean salir = true; 
@@ -143,7 +154,7 @@ public class FuncionesCandidato {
             System.out.println(posiToF);            
             System.out.println(i.getPartido_politico());            
             System.out.println(i.getPropuestas()); 
-            System.out.println("\n");         
+            System.out.println("\n");
         });
     } 
 
