@@ -158,11 +158,6 @@ public class FuncionesCandidato {
             System.out.println("\n");
             System.out.println("\n");    
 
-            System.out.println("Digite x  para continuar ");   
-            String x = scanner.nextLine();
-            System.out.print("\033c");
-
-
         });
     } 
 
