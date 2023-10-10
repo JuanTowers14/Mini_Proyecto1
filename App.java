@@ -64,7 +64,7 @@ public class App {
                 FuncionesCandidato.mostrarCandidato(lista2);
                 break;
             case 3:
-                FuncionesCandidato.mostrarCandidato(lista2);
+                FuncionesCandidato.buscarCandidato();
                 break;
             case 4:
                 FuncionesCandidato.actualizarCandidato();
