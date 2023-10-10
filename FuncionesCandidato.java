@@ -139,6 +139,7 @@ public class FuncionesCandidato {
     }
 
     public static void mostrarCandidato(ArrayList<Candidato> lista2){
+        Scanner scanner = new Scanner(System.in);
         lista2.forEach((i) ->{
             String posiToF = null;
             if(i.isDerecha()==true){
@@ -155,6 +156,13 @@ public class FuncionesCandidato {
             System.out.println(i.getPartido_politico());            
             System.out.println(i.getPropuestas()); 
             System.out.println("\n");
+            System.out.println("\n");    
+
+            System.out.println("Digite x  para continuar ");   
+            String x = scanner.nextLine();
+            System.out.print("\033c");
+
+
         });
     } 
 
@@ -166,6 +174,7 @@ public class FuncionesCandidato {
         System.out.print("\033c");
         
         lista.forEach((i)->{
+            
             if(i.getNombre().contains(buscado)){
                 String posiToF = null;
                 if(i.isDerecha()==true){
@@ -182,6 +191,8 @@ public class FuncionesCandidato {
                 System.out.println(i.getPartido_politico());            
                 System.out.println(i.getPropuestas()); 
                 System.out.println("\n"); 
+                
+
             }
         });
     }
