@@ -12,10 +12,12 @@ public class FuncionesCandidato {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Ingresa el nombre: ");
             String nombreWhile = scanner.nextLine();
+            System.out.print("\033c");
             
             System.out.println("ingrese la Identificación: ");
             String identificacion = scanner.nextLine();
             Ciudades ciudades[] = Ciudades.values();
+            System.out.print("\033c");
 
             System.out.println("Estas son las ciudades: ");            
             for(Integer i=1; i <= ciudades.length ; i++){
@@ -32,6 +34,7 @@ public class FuncionesCandidato {
             do{
                 System.out.println("ingrese el número de su ciudad de origen: ");
                 variableswitch3 = scanner.nextInt();
+                System.out.print("\033c");
                 
                 switch(variableswitch3){
                     case 1: ciudad = Ciudades.Cali;break;
@@ -66,6 +69,7 @@ public class FuncionesCandidato {
             do {
                 System.out.println("ingrese 0 si es de derecha o 1 si es de Izquierda: ");
                 posi = scanner.nextInt();
+                System.out.print("\033c");
                 if(posi == 0){
                 posicion = true; /* se le asigna true cuando el candidato es de derecha */
                 int variableswitch;
@@ -74,8 +78,9 @@ public class FuncionesCandidato {
                     System.out.println("1. "+Partido.Conservador);
                     System.out.println("2. "+Partido.Centro_democratico);
                     System.out.println("3. "+Partido.Partido_cambio_radical);
-
                     variableswitch = scanner.nextInt(); 
+                    System.out.print("\033c");
+
                     switch(variableswitch){
                     case 1: PartidoCan = Partido.Conservador;break;
                     case 2: PartidoCan = Partido.Centro_democratico;break;
@@ -93,6 +98,7 @@ public class FuncionesCandidato {
                         System.out.println("1. "+Partido.Liberal);
                         System.out.println("2. "+Partido.Alianza_verde);
                         variableswitch2 = scanner.nextInt();
+                        System.out.print("\033c");
                         
                         switch(variableswitch2){
                         case 1: PartidoCan = Partido.Liberal;break;
@@ -108,11 +114,13 @@ public class FuncionesCandidato {
             System.out.println("ingrese sus propuestas de campaña: ");
             scanner.nextLine();
             String propuestas = scanner.nextLine();
+            System.out.print("\033c");
         
             Candidato candidato = new Candidato(nombreWhile, identificacion, ciudad , posicion, PartidoCan, propuestas);
             lista.add(candidato);
             System.out.println("si desea salir, ingrese 0: ");
             int continuar = scanner.nextInt();
+            System.out.print("\033c");
 
             if(continuar==0)
                 salir = false;
@@ -144,6 +152,7 @@ public class FuncionesCandidato {
 
         System.out.print("Ingresa el nombre del candidato a buscar: ");
         String buscado = scanner.nextLine();
+        System.out.print("\033c");
         
         lista.forEach((i)->{
             if(i.getNombre().contains(buscado)){
@@ -170,6 +179,8 @@ public class FuncionesCandidato {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingresa la cédula del candidato a actualizar: ");
         String buscado = scanner.nextLine();
+        System.out.print("\033c");
+
         lista.forEach((i)->{
             if(i.getIdentificacion().contains(buscado)){
                 String posiToF = null;
@@ -196,10 +207,13 @@ public class FuncionesCandidato {
         while(validar != 0 || opc1<1 || opc1>4){
         opc1 = scanner.nextInt();
         scanner.nextLine();
+        System.out.print("\033c");
 
         switch(opc1){
             case 1: System.out.println("Ingrese el nuevo nombre: ");          
                     String nombreA = scanner.nextLine();
+                    System.out.print("\033c");
+
                     lista.get(indice).setNombre(nombreA);
                     break;
             case 2: if(lista.get(indice).isDerecha()==true){
@@ -219,6 +233,7 @@ public class FuncionesCandidato {
                             System.out.println("3. "+Partido.Partido_cambio_radical);
 
                             variableswitch = scanner.nextInt(); 
+                            System.out.print("\033c");
                             switch(variableswitch){
                             case 1: lista.get(indice).setPartido_politico(Partido.Conservador);break;
                             case 2: lista.get(indice).setPartido_politico(Partido.Centro_democratico);break;
@@ -233,6 +248,7 @@ public class FuncionesCandidato {
                                 System.out.println("1. "+Partido.Liberal);
                                 System.out.println("2. "+Partido.Alianza_verde);
                                 variableswitch2 = scanner.nextInt();
+                                System.out.print("\033c");
                                 
                                 switch(variableswitch2){
                                 case 1: lista.get(indice).setPartido_politico(Partido.Liberal);break;
@@ -244,6 +260,7 @@ public class FuncionesCandidato {
                     break;
             case 4: System.out.println("Ingrese las nuevas propuestas: ");
                     String propuestA = scanner.nextLine();
+                    System.out.print("\033c");
                     lista.get(indice).setPropuestas(propuestA);
                     break;
             default: System.out.println("Dígite algo válido: ");
@@ -259,6 +276,7 @@ public class FuncionesCandidato {
 
         System.out.print("Ingresa la cédula del candidato a eliminar: ");
         String buscado = scanner.nextLine();
+        System.out.print("\033c");
 
         for(int i = 0; i < FuncionesCandidato.lista.size(); i++){
             if(FuncionesCandidato.lista.get(i).getIdentificacion().equals(buscado)){
