@@ -178,7 +178,6 @@ public class FuncionesCandidato {
                 System.out.println(i.getPartido_politico());            
                 System.out.println(i.getPropuestas()); 
                 System.out.println("\n"); 
-                
 
             }
         });
