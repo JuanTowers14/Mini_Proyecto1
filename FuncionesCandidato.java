@@ -156,8 +156,7 @@ public class FuncionesCandidato {
             System.out.println(i.getPartido_politico());            
             System.out.println(i.getPropuestas()); 
             System.out.println("\n");
-            System.out.println("\n");    
-
+            System.out.println("\n"); 
         });
     } 
 
@@ -185,8 +184,7 @@ public class FuncionesCandidato {
                 System.out.println(posiToF);            
                 System.out.println(i.getPartido_politico());            
                 System.out.println(i.getPropuestas()); 
-                System.out.println("\n"); 
-
+                System.out.println("\n");
             }
         });
     }
@@ -198,7 +196,7 @@ public class FuncionesCandidato {
         System.out.print("\033c");
 
         lista.forEach((i)->{
-            if(i.getIdentificacion().contains(buscado)){
+            if(i.getIdentificacion().equals(buscado)){
                 String posiToF = null;
                 if(lista.get(indice).isDerecha()){
                         posiToF = "Derecha";
@@ -300,6 +298,16 @@ public class FuncionesCandidato {
             }
         }
 
+    }
+    public static void asignarVotos(){
+        Scanner scanner = new Scanner(System.in);
+
+        lista.forEach((i)->{
+            System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
+            int votos = scanner.nextInt();
+            i.setNumero_votos(votos);
+            System.out.print("\033c");
+        });
     }
 }
 
