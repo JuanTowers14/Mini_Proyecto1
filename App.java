@@ -49,7 +49,8 @@ public class App {
         System.out.println("3- Buscar candidato.");
         System.out.println("4- Editar un candidato.");
         System.out.println("5- Eliminar un candidato.");
-        System.out.println("6- Volver.");
+        System.out.println("6- Asignar votos de los candidatos.");
+        System.out.println("7- Volver.");
 
         System.out.print("\nPor favor seleccione una opcion: ");
         opcion2 = sn.nextInt();
@@ -65,8 +66,9 @@ public class App {
                 System.out.println("\033c");
                 break;
             case 3:
-                FuncionesCandidato.mostrarCandidato(FuncionesCandidato.lista);
                 FuncionesCandidato.buscarCandidato();
+                FuncionesCandidato.pressEnterToContinue();
+                System.out.println("\033c");
                 break;
             case 4:
                 FuncionesCandidato.actualizarCandidato();
@@ -75,6 +77,9 @@ public class App {
                 FuncionesCandidato.eliminarCandidato();
                 break;
             case 6:
+                FuncionesCandidato.asignarVotos();
+                break;
+            case 7:
                 break;
             default:
                 {System.out.println("digitaste algo mal vuelve a intentarlo");}
