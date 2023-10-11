@@ -82,7 +82,7 @@ public class App {
             case 7:
                 break;
             default:
-                {System.out.println("digitaste algo mal vuelve a intentarlo");}
+                {System.out.println("Digitaste algo mal vuelve a intentarlo");}
             break;
 
         }

@@ -25,20 +25,21 @@ public class FuncionesCandidato {
             String nombreWhile = scanner.nextLine();
             System.out.print("\033c");
             
-            System.out.println("ingrese la Identificación: ");
+            System.out.println("Ingrese la Identificación: ");
             String identificacion = scanner.nextLine();
             Ciudades ciudades[] = Ciudades.values();
             System.out.print("\033c");
 
-            System.out.println("Estas son las ciudades: ");            
+            System.out.println("Estas son las ciudades: ");  
+            System.out.println("-------------------------------------------------------------------------------");          
             for(Integer i=1; i <= ciudades.length ; i++){
-                if (((i+1)%4)==0){
-                System.out.print(i.toString() + ". " + ciudades[i-1] + "  \n" );
-            }else {
-                System.out.print(i.toString() + ". " + ciudades[i-1] + "       " );
+                if (((i+1)%4)==0){    
+                    System.out.print(i.toString() + ". " + ciudades[i-1] + "\t\t\n" );
+                }else {
+                    System.out.print(i.toString() + ". " + ciudades[i-1] + "\t\t" );
             }
             }
-            System.out.println();
+            System.out.println("\n-------------------------------------------------------------------------------\n"); 
 
             int variableswitch3;
             Ciudades ciudad = null; 
@@ -69,7 +70,7 @@ public class FuncionesCandidato {
                     case 19: ciudad = Ciudades.Yumbo;break;
                     case 20: ciudad = Ciudades.Florida;break;
                     case 21: ciudad = Ciudades.Dagua;break;
-                    default: System.out.println("Digite algo válido");
+                    default: System.out.println("ERROR. Digite algo válido");
                 }
             }while(variableswitch3 < 1 || variableswitch3 >21 );  
             
@@ -122,14 +123,14 @@ public class FuncionesCandidato {
                 
             } while (posi > 1 || posi < 0);
             
-            System.out.println("ingrese sus propuestas de campaña: ");
+            System.out.println("Ingrese sus propuestas de campaña: ");
             scanner.nextLine();
             String propuestas = scanner.nextLine();
             System.out.print("\033c");
         
             Candidato candidato = new Candidato(nombreWhile, identificacion, ciudad , posicion, PartidoCan, propuestas);
             lista.add(candidato);
-            System.out.println("si desea salir, ingrese 0: ");
+            System.out.println("Si desea salir, ingrese 0: ");
             int continuar = scanner.nextInt();
             System.out.print("\033c");
 
