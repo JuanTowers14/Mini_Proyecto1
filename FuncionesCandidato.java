@@ -198,6 +198,7 @@ public class FuncionesCandidato {
         lista.forEach((i)->{
             if(i.getIdentificacion().equals(buscado)){
                 String posiToF = null;
+                indice = lista.indexOf(i);
                 if(lista.get(indice).isDerecha()){
                         posiToF = "Derecha";
                     }
@@ -209,10 +210,9 @@ public class FuncionesCandidato {
                 System.out.println("Cedula:           "+i.getIdentificacion()+" (No permitido)");            
                 System.out.println("Ciudad de origen: "+i.getCiudad_origen()+" (No permitido)");            
                 System.out.println("Posición:   2.    "+posiToF);            
-                System.out.println("Prtido:     3.    "+i.getPartido_politico());            
+                System.out.println("Partido:     3.    "+i.getPartido_politico());            
                 System.out.println("Propuestas: 4.    "+i.getPropuestas()); 
                 System.out.println("\n");
-                indice = lista.indexOf(i);
                 validar = 1;
             }
         });
@@ -232,9 +232,41 @@ public class FuncionesCandidato {
                     break;
             case 2: if(lista.get(indice).isDerecha()==true){
                         lista.get(indice).setDerecha(false);
+                        int variableswitch4;
+                            do {
+                                System.out.println("Su posición será cambiada a izquierda");
+                                System.out.println("Estos son los partidos de izquierda: ");
+                                System.out.println("1. "+Partido.Liberal);
+                                System.out.println("2. "+Partido.Alianza_verde);
+                                variableswitch4 = scanner.nextInt();
+                                System.out.print("\033c");
+                                
+                                switch(variableswitch4){
+                                case 1: lista.get(indice).setPartido_politico(Partido.Liberal);break;
+                                case 2: lista.get(indice).setPartido_politico(Partido.Alianza_verde);break;
+                                default: System.out.println("Digíte un dato válido");break;
+                            }
+                            }while(variableswitch4 < 1 || variableswitch4 > 2);
                     }
                     else{
                         lista.get(indice).setDerecha(true);
+                        int variableswitch3;
+                        do {
+                            System.out.println("Su posición será cambiada a derecha");
+                            System.out.println("Estos son los partidos de derecha: ");
+                            System.out.println("1. "+Partido.Conservador);
+                            System.out.println("2. "+Partido.Centro_democratico);
+                            System.out.println("3. "+Partido.Partido_cambio_radical);
+
+                            variableswitch3 = scanner.nextInt(); 
+                            System.out.print("\033c");
+                            switch(variableswitch3){
+                            case 1: lista.get(indice).setPartido_politico(Partido.Conservador);break;
+                            case 2: lista.get(indice).setPartido_politico(Partido.Centro_democratico);break;
+                            case 3: lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);break;
+                            default: System.out.println("Digíte un dato válido");break;
+                            }
+                        }while(variableswitch3<1 ||  variableswitch3>3);
                     }
                     System.out.println("Posición política cambiada");
                     break;
@@ -280,8 +312,8 @@ public class FuncionesCandidato {
             default: System.out.println("Dígite algo válido: ");
                      break;
                     }
+            validar = 0;
         }
-        validar = 0;
                          
     }
 
