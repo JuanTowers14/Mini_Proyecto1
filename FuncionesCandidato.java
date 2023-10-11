@@ -5,6 +5,8 @@ public class FuncionesCandidato {
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
     static int indice;
     static int validar = 0;
+    static int mas_votos = 0; 
+    static Candidato ganador = null;
 
     static void pressEnterToContinue(){ 
         Scanner scanner = new Scanner(System.in);
@@ -192,34 +194,40 @@ public class FuncionesCandidato {
 
     public static void actualizarCandidato(){
         Scanner scanner = new Scanner(System.in);
+        
+        do{     
         System.out.print("Ingresa la cédula del candidato a actualizar: ");
         String buscado = scanner.nextLine();
         System.out.print("\033c");
 
         lista.forEach((i)->{
             if(i.getIdentificacion().equals(buscado)){
-                String posiToF = null;
                 indice = lista.indexOf(i);
-                if(lista.get(indice).isDerecha()){
+                validar = 1;
+            }
+        });
+        if(validar!=1){
+            System.out.println("Candidato no encontrado, por favor vuelva a intentar");
+        }
+        }while(validar != 1);
+        int opc1 = 2;
+        while(validar != 0 || opc1<1 || opc1>4){
+        String posiToF = null;
+        if(lista.get(indice).isDerecha()){
                         posiToF = "Derecha";
                     }
                 else{
                         posiToF = "Izquierda";
                     } 
                 System.out.println("------------------------------------------------------------");
-                System.out.println("Nombre:     1.    "+i.getNombre());            
-                System.out.println("Cedula:           "+i.getIdentificacion()+" (No permitido)");            
-                System.out.println("Ciudad de origen: "+i.getCiudad_origen()+" (No permitido)");            
+                System.out.println("Nombre:     1.    "+lista.get(indice).getNombre());            
+                System.out.println("Cedula:           "+lista.get(indice).getIdentificacion()+" (No permitido)");            
+                System.out.println("Ciudad de origen: "+lista.get(indice).getCiudad_origen()+" (No permitido)");            
                 System.out.println("Posición:   2.    "+posiToF);            
-                System.out.println("Partido:     3.    "+i.getPartido_politico());            
-                System.out.println("Propuestas: 4.    "+i.getPropuestas()); 
+                System.out.println("Partido:    3.    "+lista.get(indice).getPartido_politico());            
+                System.out.println("Propuestas: 4.    "+lista.get(indice).getPropuestas()); 
                 System.out.println("\n");
-                validar = 1;
-            }
-        });
-        int opc1 = 2;
         System.out.println("Ingrese el número del atributo a cambiar: ");
-        while(validar != 0 || opc1<1 || opc1>4){
         opc1 = scanner.nextInt();
         scanner.nextLine();
         System.out.print("\033c");
@@ -339,6 +347,10 @@ public class FuncionesCandidato {
             System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
             int votos = scanner.nextInt();
             i.setNumero_votos(votos);
+            if(votos > mas_votos){
+                ganador = i;
+                mas_votos = votos;
+            }
             System.out.print("\033c");
         });
     }

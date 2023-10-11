@@ -24,7 +24,10 @@ public class App {
                     menuCandidato(args);
                     break;
                 case 2:
-                    System.out.println("aqui van los resultados");
+                    System.out.println("El candidato ganador es:"+FuncionesCandidato.ganador.getNombre());
+                    System.out.println("de cédula: "+FuncionesCandidato.ganador.getIdentificacion());
+                    System.out.println("Con "+FuncionesCandidato.mas_votos+" votos.");
+                    System.out.println("Las propuestas del candidato son: "+FuncionesCandidato.ganador.getPropuestas());
                     break;
                 case 3:
                     System.out.println("aqui van las estadisticas");
