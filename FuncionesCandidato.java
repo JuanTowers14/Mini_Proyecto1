@@ -187,7 +187,7 @@ public class FuncionesCandidato {
                 System.out.println(posiToF);            
                 System.out.println(i.getPartido_politico());            
                 System.out.println(i.getPropuestas()); 
-                System.out.println("\n");
+                System.out.print("\n");
             }
         });
     }
@@ -220,12 +220,12 @@ public class FuncionesCandidato {
                         posiToF = "Izquierda";
                     } 
                 System.out.println("------------------------------------------------------------");
-                System.out.println("Nombre:     1.    "+lista.get(indice).getNombre());            
-                System.out.println("Cedula:           "+lista.get(indice).getIdentificacion()+" (No permitido)");            
-                System.out.println("Ciudad de origen: "+lista.get(indice).getCiudad_origen()+" (No permitido)");            
-                System.out.println("Posición:   2.    "+posiToF);            
-                System.out.println("Partido:    3.    "+lista.get(indice).getPartido_politico());            
-                System.out.println("Propuestas: 4.    "+lista.get(indice).getPropuestas()); 
+                System.out.println("Nombre:     1.    \t"+lista.get(indice).getNombre());            
+                System.out.println("Cedula:           \t"+lista.get(indice).getIdentificacion()+"\t(No permitido)");            
+                System.out.println("Ciudad de origen: \t"+lista.get(indice).getCiudad_origen()+"\t(No permitido)");            
+                System.out.println("Posición:   2.    \t"+posiToF);            
+                System.out.println("Partido:    3.    \t"+lista.get(indice).getPartido_politico());            
+                System.out.println("Propuestas: 4.    \t"+lista.get(indice).getPropuestas()); 
                 System.out.println("\n");
         System.out.println("Ingrese el número del atributo a cambiar: ");
         opc1 = scanner.nextInt();
@@ -351,7 +351,7 @@ public class FuncionesCandidato {
                 ganador = i;
                 mas_votos = votos;
             }
-            System.out.print("\033c");
+                
         });
     }
 }
