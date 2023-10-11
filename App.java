@@ -9,11 +9,11 @@ public class App {
         Scanner sn = new Scanner(System.in);
         int opcion2;
         do{
+            System.out.print("\033c");
             System.out.println("\nSistema de votaciones Valle 2023\n");
             System.out.println("1- Ver menu de los candidatos.");
             System.out.println("2- Ver resultados.");
-            System.out.println("3- Ver estadistica.");
-            System.out.println("4- salir.");
+            System.out.println("3- salir.");
 
             System.out.print("\nPor favor seleccione una opcion: ");
             opcion2 = sn.nextInt();
@@ -27,7 +27,8 @@ public class App {
                     System.out.println("El candidato ganador es:"+FuncionesCandidato.ganador.getNombre());
                     System.out.println("de cédula: "+FuncionesCandidato.ganador.getIdentificacion());
                     System.out.println("Con "+FuncionesCandidato.mas_votos+" votos.");
-                    System.out.println("Las propuestas del candidato son: "+FuncionesCandidato.ganador.getPropuestas());
+                    System.out.println("Las propuestas del candidato son: "+FuncionesCandidato.ganador.getPropuestas() + "\n\n");
+                    FuncionesCandidato.pressEnterToContinue();
                     break;
                 case 3:
                     System.out.println("aqui van las estadisticas");
@@ -83,6 +84,7 @@ public class App {
                 FuncionesCandidato.asignarVotos();
                 break;
             case 7:
+                App.main(args);
                 break;
             default:
                 {System.out.println("Digitaste algo mal vuelve a intentarlo");}
