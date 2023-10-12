@@ -344,14 +344,18 @@ public class FuncionesCandidato {
         Scanner scanner = new Scanner(System.in);
 
         lista.forEach((i)->{
-            System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
-            int votos = scanner.nextInt();
-            i.setNumero_votos(votos);
-            if(votos > mas_votos){
-                ganador = i;
-                mas_votos = votos;
+            int votos=0;
+            do {
+                if(i.getNumero_votos()==-1){
+                System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
+                votos = scanner.nextInt();
+                i.setNumero_votos(votos);
+                if(votos > mas_votos){
+                    ganador = i;
+                    mas_votos = votos;
+                }
             }
-                
+            } while (votos < 0);      
         });
     }
 }
