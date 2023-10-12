@@ -36,6 +36,7 @@ public class App {
                     break;
                 case 4: 
                     FuncionesCandidato.ordenar();
+                    main(args);
                     break;
                 case 5:
                     break;
