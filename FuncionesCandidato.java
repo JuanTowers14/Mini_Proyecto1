@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+import javafx.scene.web.WebHistory.Entry;
+
 
 public class FuncionesCandidato {
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
@@ -427,7 +429,6 @@ public class FuncionesCandidato {
                 ganador = i;
                 mas_votos = votos;
             }
-             pressEnterToContinue();
              System.out.print("\033c");   
         });
     }
@@ -514,30 +515,35 @@ public class FuncionesCandidato {
         hashMap.put(conteoBuga, Ciudades.Buga.toString());
         hashMap.put(conteoCaicedonia, Ciudades.Caicedonia.toString());
         hashMap.put(conteoCandelaria , Ciudades.Candelaria.toString());
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
-        hashMap.put( , );
+        hashMap.put(conteoCartago , Ciudades.Cartago.toString());
+        hashMap.put(conteoCerrito , Ciudades.Cerrito.toString());
+        hashMap.put(conteoDagua , Ciudades.Dagua.toString());
+        hashMap.put(conteoFlorida , Ciudades.Florida.toString());
+        hashMap.put(conteoGinebra , Ciudades.Ginebra.toString());
+        hashMap.put(conteoGuacari , Ciudades.Guacari.toString());
+        hashMap.put(conteoJamundi , Ciudades.Jamundi.toString());
+        hashMap.put(conteoLaUnion , Ciudades.Launion.toString());
+        hashMap.put(conteoPalmira , Ciudades.Palmira.toString());
+        hashMap.put(conteoPradera , Ciudades.Pradera.toString());
+        hashMap.put(conteoRoldanillo , Ciudades.Roldanillo.toString());
+        hashMap.put(conteoRozo , Ciudades.Rozo.toString());
+        hashMap.put(conteoSevilla , Ciudades.Sevilla.toString());
+        hashMap.put(conteoTulua , Ciudades.Tulua.toString());
+        hashMap.put(conteoYumbo , Ciudades.Yumbo.toString());
+        hashMap.put(conteoZarzal , Ciudades.Candelaria.toString());
 
 
         // Crear un TreeMap a partir del HashMap para ordenar por claves
         TreeMap<Integer , String> treeMap = new TreeMap<>(hashMap);
 
         // Iterar a través del TreeMap (ordenado por claves)
+        int contF = 1;
         for (Map.Entry<Integer, String> entry : treeMap.entrySet()) {
-            System.out.println("Clave: " + entry.getKey() + ", Valor: " + entry.getValue());
+            if(entry.getKey() != 0){
+                    System.out.println("Top " + contF + "\tCandidatos: " + entry.getKey() + ", Ciudad: " + entry.getValue());
+                    contF ++;
+            }
+            continue;
         }
         pressEnterToContinue();
     }
