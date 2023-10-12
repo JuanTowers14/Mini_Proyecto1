@@ -1,5 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
+
 
 public class FuncionesCandidato {
     static ArrayList<Candidato> lista= new ArrayList<Candidato>();
@@ -7,6 +11,10 @@ public class FuncionesCandidato {
     static int validar = 0;
     static int mas_votos = 0; 
     static Candidato ganador = null;
+
+    static int conteoCali, conteoBuenaventura, conteoPalmira, conteoTulua, conteoJamundi, conteoCartago, conteoZarzal = 0;
+    static int conteoCandelaria, conteoPradera, conteoGinebra, conteoCerrito, conteoRoldanillo, conteoLaUnion, conteoSevilla = 0;
+    static int conteoBuga, conteoGuacari, conteoRozo, conteoCaicedonia, conteoYumbo, conteoFlorida, conteoDagua = 0;
 
     static int conteoConservador, conteoCentroDemocratico, conteoCambioRadical = 0;
     static int conteoLiberal, conteoAlianzaVerde = 0;
@@ -412,20 +420,15 @@ public class FuncionesCandidato {
         Scanner scanner = new Scanner(System.in);
 
         lista.forEach((i)->{
-            int votos=0;
-            do {
-                if(i.getNumero_votos()==-1){
-                System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
-                votos = scanner.nextInt();
-                i.setNumero_votos(votos);
-                if(votos > mas_votos){
-                    ganador = i;
-                    mas_votos = votos;
-                }
+            System.out.println("Asigna la cantidad de votos para el candidato "+ i.getNombre());
+            int votos = scanner.nextInt();
+            i.setNumero_votos(votos);
+            if(votos > mas_votos){
+                ganador = i;
+                mas_votos = votos;
             }
              pressEnterToContinue();
              System.out.print("\033c");   
-            } while (votos < 0);     
         });
     }
 
@@ -455,5 +458,90 @@ public class FuncionesCandidato {
         System.out.print("\033c");
     }
 
+    public static void ordenar(){
+        lista.forEach((i)->{
+            if(i.getCiudad_origen().equals(Ciudades.Cali)){
+                conteoCali++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Buenaventura)){
+                conteoBuenaventura++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Buga)){
+                conteoBuga++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Caicedonia)){
+                conteoCaicedonia++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Candelaria)){
+                conteoCandelaria++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Cartago)){
+                conteoCartago++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Cerrito)){
+                conteoCerrito++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Dagua)){
+                conteoDagua++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Florida)){
+                conteoFlorida++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Ginebra)){
+                conteoGinebra++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Guacari)){
+                conteoGuacari++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Jamundi)){
+                conteoJamundi++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Launion)){
+                conteoLaUnion++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Launion)){
+                conteoLaUnion++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Palmira)){
+                conteoPalmira++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Pradera)){
+                conteoPradera++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Roldanillo)){
+                conteoRoldanillo++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Rozo)){
+                conteoRozo++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Sevilla)){
+                conteoSevilla++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Tulua)){
+                conteoTulua++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Yumbo)){
+                conteoYumbo++;
+            }else if(i.getCiudad_origen().equals(Ciudades.Zarzal)){
+                conteoZarzal++;
+            }
+        });
+
+        // Crear un HashMap
+        HashMap<Integer, String> hashMap = new HashMap<>();
+        hashMap.put(conteoCali, Ciudades.Cali.toString());
+        hashMap.put(conteoBuenaventura, Ciudades.Buenaventura.toString());
+        hashMap.put(conteoBuga, Ciudades.Buga.toString());
+        hashMap.put(conteoCaicedonia, Ciudades.Caicedonia.toString());
+        hashMap.put(conteoCandelaria , Ciudades.Candelaria.toString());
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+        hashMap.put( , );
+
+
+        // Crear un TreeMap a partir del HashMap para ordenar por claves
+        TreeMap<Integer , String> treeMap = new TreeMap<>(hashMap);
+
+        // Iterar a través del TreeMap (ordenado por claves)
+        for (Map.Entry<Integer, String> entry : treeMap.entrySet()) {
+            System.out.println("Clave: " + entry.getKey() + ", Valor: " + entry.getValue());
+        }
+        pressEnterToContinue();
+    }
+    
 }
+
 

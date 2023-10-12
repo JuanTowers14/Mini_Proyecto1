@@ -37,6 +37,7 @@ public class App {
                     break;
                 default:
                     {System.out.println("adios");}
+                    FuncionesCandidato.ordenar();
                 break;
         }
         }while(opcion!=4);
