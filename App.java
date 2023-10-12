@@ -13,7 +13,8 @@ public class App {
             System.out.println("1- Ver menu de los candidatos.");
             System.out.println("2- Ver resultados.");
             System.out.println("3- Partido con más candidatos inscritos.");
-            System.out.println("4- salir.");
+            System.out.println("4- top 3 ciudades con menos candidatos.");
+            System.out.println("5- Salir.");
 
             System.out.print("\nPor favor seleccione una opcion: ");
             opcion = sn.nextInt();
@@ -34,10 +35,12 @@ public class App {
                     FuncionesCandidato.ContarPorPartido();
                     break;
                 case 4: 
+                    FuncionesCandidato.ordenar();
+                    break;
+                case 5:
                     break;
                 default:
-                    {System.out.println("adios");}
-                break;
+                    break;
         }
         }while(opcion!=4);
         
