@@ -22,6 +22,7 @@ public class App {
             switch(opcion){
                 case 1:
                     menuCandidato(args);
+                    break;
                 case 2:
                     System.out.println("El candidato ganador es:"+FuncionesCandidato.ganador.getNombre());
                     System.out.println("de cédula: "+FuncionesCandidato.ganador.getIdentificacion());
@@ -84,15 +85,12 @@ public class App {
                 FuncionesCandidato.asignarVotos();
                 break;
             case 7:
-                App.main(args);
+                break;
             default:
                 {System.out.println("Digitaste algo mal vuelve a intentarlo");}
             break;
 
         }
-        }while(opcion2!=7);
-        
+        }while(opcion2!=7);   
     }
-    
-
 }
