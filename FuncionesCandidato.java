@@ -8,6 +8,9 @@ public class FuncionesCandidato {
     static int mas_votos = 0; 
     static Candidato ganador = null;
 
+    static int conteoConservador, conteoCentroDemocratico, conteoCambioRadical = 0;
+    static int conteoLiberal, conteoAlianzaVerde = 0;
+
     static void pressEnterToContinue(){ 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press Enter key to continue...");
@@ -96,9 +99,16 @@ public class FuncionesCandidato {
                     System.out.print("\033c");
 
                     switch(variableswitch){
-                    case 1: PartidoCan = Partido.Conservador;break;
-                    case 2: PartidoCan = Partido.Centro_democratico;break;
-                    case 3: PartidoCan = Partido.Partido_cambio_radical;break;
+                    case 1: {PartidoCan = Partido.Conservador;
+                        conteoConservador++;
+                        break;}
+
+                    case 2: {PartidoCan = Partido.Centro_democratico;
+                        conteoCentroDemocratico++;
+                        break;}
+                    case 3: {PartidoCan = Partido.Partido_cambio_radical;
+                        conteoCambioRadical++;
+                        break;}
                     default: System.out.println("Digíte un dato válido");break;
                     }
                 
@@ -115,8 +125,12 @@ public class FuncionesCandidato {
                         System.out.print("\033c");
                         
                         switch(variableswitch2){
-                        case 1: PartidoCan = Partido.Liberal;break;
-                        case 2: PartidoCan = Partido.Alianza_verde;break;
+                        case 1: {PartidoCan = Partido.Liberal;
+                            conteoLiberal++;
+                            break;}
+                        case 2: {PartidoCan = Partido.Alianza_verde;
+                            conteoAlianzaVerde++;
+                            break;}
                         default: System.out.println("Digíte un dato válido");break;
                     }
                     } while (variableswitch2 < 1 || variableswitch2 > 2);
@@ -240,6 +254,13 @@ public class FuncionesCandidato {
                     lista.get(indice).setNombre(nombreA);
                     break;
             case 2: if(lista.get(indice).isDerecha()==true){
+
+                        if(lista.get(indice).getPartido_politico().toString().equals("Conservador")){
+                            conteoConservador--;
+                        }else if(lista.get(indice).getPartido_politico().toString().equals("Centro_democratico")){
+                            conteoCentroDemocratico--;
+                        }else{conteoCambioRadical--;}
+
                         lista.get(indice).setDerecha(false);
                         int variableswitch4;
                             do {
@@ -251,13 +272,22 @@ public class FuncionesCandidato {
                                 System.out.print("\033c");
                                 
                                 switch(variableswitch4){
-                                case 1: lista.get(indice).setPartido_politico(Partido.Liberal);break;
-                                case 2: lista.get(indice).setPartido_politico(Partido.Alianza_verde);break;
+                                case 1: {lista.get(indice).setPartido_politico(Partido.Liberal);
+                                    conteoLiberal++;
+                                    break;}
+                                case 2: {lista.get(indice).setPartido_politico(Partido.Alianza_verde);
+                                    conteoAlianzaVerde++;
+                                    break;}
                                 default: System.out.println("Digíte un dato válido");break;
                             }
                             }while(variableswitch4 < 1 || variableswitch4 > 2);
                     }
                     else{
+
+                        if(lista.get(indice).getPartido_politico().toString().equals("Liberal")){
+                            conteoLiberal--;
+                        }else {conteoAlianzaVerde--;}
+
                         lista.get(indice).setDerecha(true);
                         int variableswitch3;
                         do {
@@ -270,9 +300,15 @@ public class FuncionesCandidato {
                             variableswitch3 = scanner.nextInt(); 
                             System.out.print("\033c");
                             switch(variableswitch3){
-                            case 1: lista.get(indice).setPartido_politico(Partido.Conservador);break;
-                            case 2: lista.get(indice).setPartido_politico(Partido.Centro_democratico);break;
-                            case 3: lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);break;
+                            case 1: {lista.get(indice).setPartido_politico(Partido.Conservador);
+                                conteoConservador++;
+                                break;}
+                            case 2: {lista.get(indice).setPartido_politico(Partido.Centro_democratico);
+                                conteoCentroDemocratico++;
+                                break;}
+                            case 3: {lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);
+                                conteoCambioRadical++;
+                                break;}
                             default: System.out.println("Digíte un dato válido");break;
                             }
                         }while(variableswitch3<1 ||  variableswitch3>3);
@@ -280,6 +316,13 @@ public class FuncionesCandidato {
                     System.out.println("Posición política cambiada");
                     break;
             case 3: if(lista.get(indice).isDerecha()==true){
+
+                        if(lista.get(indice).getPartido_politico().toString().equals("Conservador")){
+                            conteoConservador--;
+                        }else if(lista.get(indice).getPartido_politico().toString().equals("Centro_democratico")){
+                            conteoCentroDemocratico--;
+                        }else{conteoCambioRadical--;}
+
                         int variableswitch;
                         do {
                             System.out.println("Estos son los partidos de derecha: ");
@@ -290,13 +333,24 @@ public class FuncionesCandidato {
                             variableswitch = scanner.nextInt(); 
                             System.out.print("\033c");
                             switch(variableswitch){
-                            case 1: lista.get(indice).setPartido_politico(Partido.Conservador);break;
-                            case 2: lista.get(indice).setPartido_politico(Partido.Centro_democratico);break;
-                            case 3: lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);break;
+                            case 1: {lista.get(indice).setPartido_politico(Partido.Conservador);
+                                conteoConservador++;
+                                break;}
+                            case 2: {lista.get(indice).setPartido_politico(Partido.Centro_democratico);
+                                conteoCentroDemocratico++;
+                                break;}
+                            case 3: {lista.get(indice).setPartido_politico(Partido.Partido_cambio_radical);
+                                conteoCambioRadical++;
+                                break;}
                             default: System.out.println("Digíte un dato válido");break;
                             }
                         }while(variableswitch<1 ||  variableswitch>3);
                         }else{
+
+                            if(lista.get(indice).getPartido_politico().toString().equals("Liberal")){
+                            conteoLiberal--;
+                            }else {conteoAlianzaVerde--;}
+                            
                             int variableswitch2;
                             do {
                                 System.out.println("Estos son los partidos de izquierda: ");
@@ -306,8 +360,12 @@ public class FuncionesCandidato {
                                 System.out.print("\033c");
                                 
                                 switch(variableswitch2){
-                                case 1: lista.get(indice).setPartido_politico(Partido.Liberal);break;
-                                case 2: lista.get(indice).setPartido_politico(Partido.Alianza_verde);break;
+                                case 1: {lista.get(indice).setPartido_politico(Partido.Liberal);
+                                    conteoLiberal++;
+                                    break;}
+                                case 2: {lista.get(indice).setPartido_politico(Partido.Alianza_verde);
+                                    conteoAlianzaVerde++;
+                                    break;}
                                 default: System.out.println("Digíte un dato válido");break;
                             }
                             }while(variableswitch2 < 1 || variableswitch2 > 2);
@@ -335,6 +393,16 @@ public class FuncionesCandidato {
 
         for(int i = 0; i < FuncionesCandidato.lista.size(); i++){
             if(FuncionesCandidato.lista.get(i).getIdentificacion().equals(buscado)){
+                if(lista.get(indice).getPartido_politico().toString().equals("Conservador")){
+                    conteoConservador--;
+                }else if(lista.get(indice).getPartido_politico().toString().equals("Centro_democratico")){
+                    conteoCentroDemocratico--;
+                }else if(lista.get(indice).getPartido_politico().toString().equals("Partido_cambio_radical")){
+                    conteoCambioRadical--;
+                }else if(lista.get(indice).getPartido_politico().toString().equals("Liberal")){
+                    conteoLiberal--;
+                }else{conteoAlianzaVerde--;}
+                
                 FuncionesCandidato.lista.remove(i);
             }
         }
@@ -351,8 +419,36 @@ public class FuncionesCandidato {
                 ganador = i;
                 mas_votos = votos;
             }
-                
+             pressEnterToContinue();
+             System.out.print("\033c");   
         });
     }
+
+    public static void ContarPorPartido(){
+        String nombreCiudad="";
+        int partidoMayor=-1;
+
+        if(conteoAlianzaVerde>partidoMayor){
+            nombreCiudad = Partido.Alianza_verde.toString();
+            partidoMayor = conteoAlianzaVerde;
+        }if (conteoCambioRadical > partidoMayor){
+            partidoMayor = conteoCambioRadical;
+            nombreCiudad = Partido.Partido_cambio_radical.toString();
+        }if (conteoCentroDemocratico > partidoMayor){
+            partidoMayor = conteoCentroDemocratico;
+            nombreCiudad = Partido.Centro_democratico.toString();
+        }if (conteoConservador > partidoMayor){
+            partidoMayor = conteoConservador;
+            nombreCiudad = Partido.Conservador.toString();
+        }if (conteoLiberal > partidoMayor){
+            partidoMayor = conteoLiberal;
+            nombreCiudad = Partido.Liberal.toString();
+        }
+
+        System.out.println("El partido con más candidatos fue: " + nombreCiudad);
+        pressEnterToContinue();
+        System.out.print("\033c");
+    }
+
 }
 

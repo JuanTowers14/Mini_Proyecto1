@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 
 public class App {
@@ -7,22 +6,22 @@ public class App {
     public static void main(String[] args) throws Exception{
         System.out.print("\033c");
         Scanner sn = new Scanner(System.in);
-        int opcion2;
+        int opcion;
         do{
             System.out.print("\033c");
             System.out.println("\nSistema de votaciones Valle 2023\n");
             System.out.println("1- Ver menu de los candidatos.");
             System.out.println("2- Ver resultados.");
-            System.out.println("3- salir.");
+            System.out.println("3- Partido con más candidatos inscritos.");
+            System.out.println("4- salir.");
 
             System.out.print("\nPor favor seleccione una opcion: ");
-            opcion2 = sn.nextInt();
+            opcion = sn.nextInt();
             System.out.print("\033c");
         
-            switch(opcion2){
+            switch(opcion){
                 case 1:
                     menuCandidato(args);
-                    break;
                 case 2:
                     System.out.println("El candidato ganador es:"+FuncionesCandidato.ganador.getNombre());
                     System.out.println("de cédula: "+FuncionesCandidato.ganador.getIdentificacion());
@@ -31,14 +30,15 @@ public class App {
                     FuncionesCandidato.pressEnterToContinue();
                     break;
                 case 3:
-                    System.out.println("aqui van las estadisticas");
+                    FuncionesCandidato.ContarPorPartido();
                     break;
-                case 4: break;
+                case 4: 
+                    break;
                 default:
                     {System.out.println("adios");}
                 break;
         }
-        }while(opcion2!=4);
+        }while(opcion!=4);
         
     }
 
@@ -85,13 +85,12 @@ public class App {
                 break;
             case 7:
                 App.main(args);
-                break;
             default:
                 {System.out.println("Digitaste algo mal vuelve a intentarlo");}
             break;
 
         }
-        }while(opcion2!=6);
+        }while(opcion2!=7);
         
     }
     
